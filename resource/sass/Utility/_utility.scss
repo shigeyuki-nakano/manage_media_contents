@@ -1,0 +1,66 @@
+// 丸型にする
+.u-maru {
+    border-radius: 50%;
+}
+
+// カラムのサイズ調整
+@for $i from 1 through 12 {
+  .u-col-#{$i} {
+    flex: $i;
+  }
+}
+
+// マージン
+@for $i from 1 through 10 {
+  .u-mt-#{$i} {
+    margin-top: $i * 0.25rem;
+  }
+  .u-mt-#{$i * 50}px {
+    margin-top: $i * 50px;
+  }
+  .u-mr-#{$i} {
+    margin-right: $i * 0.25rem;
+  }
+  .u-mr-#{$i * 50}px {
+    margin-right: $i * 50px;
+  }
+  .u-mb-#{$i} {
+    margin-bottom: $i * 0.25rem;
+  }
+  .u-mb-#{$i * 50}px {
+    margin-bottom: $i * 50px;
+  }
+  .u-ml-#{$i} {
+    margin-left: $i * 0.25rem;
+  }
+  .u-ml-#{$i * 50}px {
+    margin-left: $i * 50px;
+  }
+}
+
+// widthの大きさ調整
+@for $i from 1 through 10 {
+    .u-width-#{$i * 10} {
+      width: $i * 10%;
+    }
+}
+
+// 文字色
+.u-color-danger {
+  color: red;
+}
+
+.u-txt-center {
+  text-align: center;
+}
+
+@media screen and (max-width: $break-point-max-smsm) {
+  @for $i from 0 through 20 {
+    .u-w-em-sm-#{20 - $i} {
+      width: 2.0em - ($i / 10);
+    }
+    .u-h-em-sm-#{20 - $i} {
+      height: 2.0em - ($i / 10);
+    }
+  }
+}

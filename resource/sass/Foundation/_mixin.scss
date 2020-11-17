@@ -1,0 +1,41 @@
+@mixin animation (
+    $name,
+    $duration: 1s,
+    $timing-function: ease,
+    $delay: 0s,
+    $iteration-count: 1,
+    // 再生方向の指定
+    $direction: normal,
+    // 再生が終わったときのスタイル
+    $fill-mode: forwards,
+    $play-state: running
+) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing-function;
+    animation-delay: $delay;
+    animation-iteration-count: $iteration-count;
+    animation-direction: $direction;
+    animation-fill-mode: $fill-mode;
+    animation-play-state: $play-state;
+}
+
+@mixin absolute (
+    $top: auto,
+    $left: auto,
+    $bottom: auto,
+    $right: auto,
+    $position: absolute
+) {
+    top: $top;
+    left: $left;
+    bottom: $bottom;
+    right: $right;
+    position: $position;
+}
+
+@mixin text-clear () {
+    text-indent:100%;
+	white-space:nowrap;
+	overflow:hidden;
+}

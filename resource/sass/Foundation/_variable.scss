@@ -1,0 +1,45 @@
+/*************************************************************
+ Colors
+**************************************************************/
+
+$main-gray: #5d627b;
+$moji: #666;
+$white: #fff;
+$cloud: #f1f1f1;
+$usu-gray: gainsboro;
+$black: #111;
+$link: #1e366a;
+$suke-gray: rgba(184, 184, 184, 0.8);
+$shadow: rgba(0, 0, 0, .2);
+$suke-black: rgba(0,0,0, 0.5);
+$red: #f1332c;
+$blue: #5da8fd;
+
+// SNSカラー
+$twitter: #1DA1F2;
+$line: #00b900;
+
+// バリデーションカラー
+$error: #da3c41;
+$success: #3cd72e;
+
+
+/*************************************************************
+ Fonts
+**************************************************************/
+
+$pop-font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO", YuGothic,'Yu Gothic',sans-serif;
+
+/*************************************************************
+ Sizes
+**************************************************************/
+// PC用下限
+$break-point-pc: 1100px;
+// タブレット用上限
+$break-point-max-tab: 1100px;
+// タブレット用下限
+$break-point-min-tab: 750px;
+// スマホ用上限
+$break-point-max-sm: 750px;
+// 小さいスマホ用上限
+$break-point-max-smsm: 450px;

@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* ==========================================================================
+ 角四角いボタン
+========================================================================== */
+
+.c-kaku-btn {
+    display: inline-block;
+    border: 1px solid #1e366a;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #1e366a;
+    transition: all 0.3s;
+    padding: 0.2em 0.5em;
+    text-decoration: none;
+    opacity: 1;
+
+    &:hover {
+        opacity: 0.8;
+    }
+    
+    &--confirm {
+        @extend .c-kaku-btn;
+        background: darkorange;
+        color: white;    
+    }
+}

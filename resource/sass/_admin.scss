@@ -1,0 +1,144 @@
+.plugin-view {
+    max-width: 100%;
+    position: relative;
+
+    .media-box {
+        margin: 15px 0 0 0;
+        max-width: 950px;
+        width: 100%;
+        position: relative;
+
+        .page-title {
+            margin-bottom: 24px;
+        }
+
+        & .set-place {
+            width: 100%;
+            height: 100px;
+            position: absolute;
+
+            &.active {
+                z-index: 10;
+                &.enable-set {
+                    background-color: rgba(205,205,205, 0.5);
+                }
+            }
+        }
+
+        // 順番変更時のリストボタンのカーソル(ドラッグアンドドロップモード)
+        &.move-mode {
+            & .sns-list {
+                cursor: all-scroll;
+            }
+        }
+
+        & .sns-list {
+            position: absolute;
+            width: 100%;
+            margin-bottom: 20px;
+            height: 100px;
+            z-index: 1;
+
+            &:hover {
+                background-color: rgba(245,245,245, 0.5);
+            }
+            
+            & .sns-content {
+                display: flex;
+                align-items: center;
+                background-color: white;
+                position: relative;
+                box-shadow: 2px 2px rgba(0,0,0,0.2);
+                height: 100px;
+    
+                & .img-wrap {
+                    max-width: 100px;
+                    max-height: 100px;
+                    border: 1px solid gray;
+                    box-sizing: border-box;
+        
+                    & img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+    
+                & .sns-info {
+                    width: 70%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+    
+                    & .sns_name-wrap {
+                        font-size: 21px;
+                    }
+                    & .link-wrap {
+                        font-size: 17px;
+                    }
+                }
+    
+                & .buttons-wrap {
+                    position: absolute;
+                    right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.page-link {
+    display: inline-block;
+
+    & .link-button {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        padding: 5px 13px;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 1px 1px rgba(0,0,0,0.3);
+        
+        &:active {
+            box-shadow: none;
+        }
+        
+        &.add {
+            background-color: #668ad8;
+        }
+
+        &.edit {
+            background-color: #00c410;
+        }
+
+        &.delete {
+            background-color: #ff2323;
+        }
+
+        &.move {
+            background-color: #a5c514;
+
+            &.active {
+                background-color: #c42e00;
+            }
+
+            &.nonactive {
+                background-color: #ccc;
+            }
+        }
+
+        &.cancel {
+            &.active {
+                background-color: #ff0505;
+            }
+        }
+    }
+
+    &.cancel-button {
+        display: none;
+
+        &.active {
+            display: inline-block;
+        }
+    }
+}

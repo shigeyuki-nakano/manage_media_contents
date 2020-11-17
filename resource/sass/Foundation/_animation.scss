@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* ==========================================================================
+ keyframes記載場所
+========================================================================== */
+
+// 吹き出し用
+@keyframes appear {
+    0% {
+        transform: scale(0) translateY(100px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        top: 0;
+    }
+}
+
+// 吹き出し用
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        top: 0;
+    }
+    50% {
+        transform: translateY(-4px);
+        top: 0;
+    }
+    100% {
+        transform: translateY(0);
+        top: 0;
+    }
+}
+
+/* ラベル、バリデーションアイコンをフェードインさせる */
+@keyframes fade-in {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+  
+    1% {
+      display: inline-block;
+      opacity: 0;
+    }
+  
+    100% {
+      display: inline-block;
+      opacity: 1;
+    }
+}
+
+// コンタクト画面のロードボタン用
+@keyframes load8 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes modal-appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes modal-fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

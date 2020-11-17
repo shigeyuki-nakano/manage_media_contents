@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* ==========================================================================
+ input用スタイル
+========================================================================== */
+.c-input {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 8px 0;
+    padding: 0.5em 40px 0.5em 1em;
+    font-size: 1em;
+    transition: 0.3s;
+    border: 1px solid #1b2538;
+    border-radius: 4px;
+    outline: none;
+
+    :hover {
+        border-color: #1b2538;
+        color: #1b2538;
+    }
+
+    &::placeholder {
+        display: inline-block;
+        font-family: "Font Awesome 5 Free";
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    &:focus::placeholder {
+        color: transparent;
+        transition: .2s;
+    }
+}

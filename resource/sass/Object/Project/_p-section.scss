@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* ==========================================================================
+ 各セクションの配置
+========================================================================== */
+
+.p-section {
+
+        // modifier
+        &--blue {
+                background-color: #E9EBFF;
+                padding-bottom: 120px;
+        }
+
+        // 子要素
+        &__title {
+                text-align: center;
+                padding: 1.2em 0;
+                font-weight: bold;
+                font-size: 1.5em;
+        }
+
+        // &__title-bg-img {
+        //         // 背景画像はwordpressにて制御し、可変にする
+        //         // background-image: ;
+        //         background-position: center;
+        //         height: 200px;
+        //         width: 100%;                
+        // }
+
+        &__sub-title {
+                font-weight: normal;
+                font-size: 0.7em;
+        }
+
+        &__content {
+        }
+
+        &__link-btn {
+                text-align: center;
+                padding-top: 20px;
+        }
+
+        // @mediaの中で@extendすると上手くいかないので仕方なく下記のような指定に...
+        &--margin-top {
+                @extend .p-section;
+                @media screen and (min-width: $break-point-pc) {
+                        margin-top: 100px;
+                }
+        
+                // タブレット用
+                @media screen and (max-width: $break-point-max-tab) and (min-width: $break-point-min-tab) {
+                        margin-top: 100px;
+                }
+        
+                // スマホ用
+                @media screen and (max-width: $break-point-max-sm) {
+                        font-size: 13px;
+                        margin-top: 50px;
+                }
+        }
+
+        // レスポンシブ
+        @media screen and (min-width: $break-point-pc) {
+        }
+
+        // タブレット用
+        @media screen and (max-width: $break-point-max-tab) and (min-width: $break-point-min-tab) {
+        }
+
+        // スマホ用
+        @media screen and (max-width: $break-point-max-sm) {
+                font-size: 13px;
+        }
+        // 小さいスマホ用
+        @media screen and (max-width: $break-point-max-smsm) {
+        }
+}

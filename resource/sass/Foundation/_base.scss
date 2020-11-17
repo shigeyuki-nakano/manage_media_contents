@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* ==========================================================================
+ スタイルの基礎を記載
+========================================================================== */
+
+/*
+ 注意事項
+ 基本的にタグを対象に記載
+*/
+
+body {
+  color: $main-gray;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+
+    &-track {
+      background: #fff;
+      border-left: solid 1px #ececec;
+    }
+
+    &-thumb {
+      background: #ccc;
+      border-radius: 10px;
+      box-shadow: inset 0 0 0 2px #fff;
+    }
+  }
+
+  // モーダル表示時などで背景を固定するとき用
+  &.is-fixed {
+    position: fixed;
+    width: 100%;
+  }
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+button {
+  outline: none;
+}
+
+// フォントの継承をするようにする
+button, input, select, textarea {
+  font-family : inherit;
+  font-size : 100%;
+}
+
+body, div, figure, ul, ol, li,
+p, h1, h2, h3, h4, h5, h6,
+pre, code, form, input, textarea {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin:  0;             /* デフォルトCSS打ち消し */
+  line-height: 2;         /* 行間調整 */
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
