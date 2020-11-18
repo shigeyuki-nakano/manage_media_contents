@@ -8,7 +8,7 @@ import { ImagePreview } from './Classes/ImagePreview';
 
     new ImagePreview({
         classNames: {
-            root: '.js-image-preview',
+            root: 'js-image-preview',
             childs: {
                 form: '__form',
                 preview: '__preview',

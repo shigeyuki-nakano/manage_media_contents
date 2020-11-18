@@ -1,0 +1,12 @@
+.p-add-btn {
+    position: relative;
+
+    &__btn {
+        @include absolute(
+            $bottom: 0,
+            $left: 50%
+        );
+        transform: translateX(-50%);
+        cursor: pointer;
+    }
+}

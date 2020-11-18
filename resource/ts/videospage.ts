@@ -1,22 +1,20 @@
+import { VideoPreview } from './Classes/VideoPreview';
+
 (function() {
     const searchParams = new URLSearchParams(window.location.search);
     if(searchParams.get('page') !== 'videos') {
         return false;
     }
 
-    window.addEventListener('load', (): void => {
-        const rootElement: HTMLElement = document.querySelector('.js-media-preview');
-        const formElement: HTMLInputElement = rootElement.querySelector('.js-media-preview__form');
-        const previewElement: HTMLElement = rootElement.querySelector('.js-media-preview__preview');
-        const switcherElement: HTMLElement = rootElement.querySelector('.js-media-preview__switcher');
-    
-        formElement.addEventListener('blur', function(e: Event) {
-            const url: string = this.value;
-            if( ! url) {
-                return false;
+    new VideoPreview({
+        classNames: {
+            root: 'js-media-preview',
+            childs: {
+                add: '__add',
+                preview: '__preview',
+                form: '__form',
+                moves: '__move-able',
             }
-            switcherElement.classList.add('is-active');
-            previewElement.setAttribute('src', url);
-        });
-    })
+        }
+    });
 })()

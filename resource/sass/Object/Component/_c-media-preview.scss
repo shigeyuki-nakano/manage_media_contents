@@ -86,13 +86,4 @@
         transform: translate(-50%, -50%);
         z-index: 1;
     }
-
-    &__add {
-        @include absolute(
-            $bottom: -50px,
-            $left: 50%
-        );
-        transform: translateX(-50%);
-        cursor: pointer;
-    }
 }

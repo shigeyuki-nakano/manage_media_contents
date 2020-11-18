@@ -98,7 +98,7 @@ interface ImageValidationPropaties {
 
 export class ImagePreview {
     private rootElements: NodeListOf<HTMLElement>;
-    private childElementMembers: {[key: number]: ChildHTMLClassMember<HTMLElement>} = {};
+    private childElementMembersArray: {[key: number]: ChildHTMLClassMember<HTMLElement>} = {};
     private rootClassName: string;
     private childClassNames: ChildHTMLClassMember<string>;
     private validOpts: ImageValidationPropaties;
@@ -118,8 +118,8 @@ export class ImagePreview {
 
             for(let i = 0; i < this.rootElements.length; i++) {
                 let rootElement: HTMLElement = this.rootElements[i];
-                let childElementMember: ChildHTMLClassMember<HTMLElement> = this.childElementMembers[i];
-                this.registerImage(rootElement, childElementMember);
+                let childElementMembers: ChildHTMLClassMember<HTMLElement> = this.childElementMembersArray[i];
+                this.registerImage(rootElement, childElementMembers);
                 this.dragover(rootElement);
                 this.dragleave(rootElement);
             }
@@ -144,7 +144,7 @@ export class ImagePreview {
 
     public getRequireElements() {
         // ルート要素のHTMLを取得
-        this.rootElements = document.querySelectorAll(this.rootClassName);
+        this.rootElements = document.querySelectorAll('.' + this.rootClassName);
 
         try {
             if(this.rootElements.length === 0) {
@@ -153,17 +153,17 @@ export class ImagePreview {
                 
                 // その配下に必要な子要素がいるか検証し、いなかったらエラー、いたらthis.childElementMembersに追加する
                 for(let i = 0; i < this.rootElements.length; i++) {
-                    let childElements: ChildHTMLClassMember<HTMLElement> = {};
+                    // interfaceのkeyがないため型エラー。後で治す
+                    this.childElementMembersArray[i] = {}
                     // this.childClassNamesからメンバー名を参照
                     Object.keys(this.childClassNames).forEach((key: string) => {
-                        const childElement: HTMLElement = this.rootElements[i].querySelector(this.rootClassName + this.childClassNames[key]);
+                        const childElement: HTMLElement = this.rootElements[i].querySelector('.' + this.rootClassName + this.childClassNames[key]);
                         if(childElement) {
-                            childElements[key] = childElement;
+                            this.childElementMembersArray[i][key] = childElement;
                         } else {
                             throw new Error(this.message(2, this.rootClassName + this.childClassNames[key]));
                         }
                     });
-                    this.childElementMembers[i] = childElements;
                 }
             }
         } catch(e) {
@@ -173,7 +173,7 @@ export class ImagePreview {
         }
     }
 
-    public registerImage(rootElement: HTMLElement, childElementMember: ChildHTMLClassMember<HTMLElement>) {
+    public registerImage(rootElement: HTMLElement, childElementMembers: ChildHTMLClassMember<HTMLElement>) {
         rootElement.addEventListener('change', (e: HTMLElementEvent<HTMLInputElement>) => {
                 const fileObj: any = e.target.files[0];
             try {
@@ -220,8 +220,8 @@ export class ImagePreview {
                     // 画像比率の検証
                     const ratioResult: [boolean, string] = ImageValidation.chkRatio(imageSizes, this.validOpts.ratioConfig);
                     if(ratioResult[0]) {
-                        childElementMember.preview.setAttribute('src', dataURL);
-                        childElementMember.mediaFileName.innerHTML = fileObj.name;
+                        childElementMembers.preview.setAttribute('src', dataURL);
+                        childElementMembers.mediaFileName.innerHTML = fileObj.name;
                         rootElement.classList.add('is-active');
                     } else {
                         throw new Error(ratioResult[1]);
